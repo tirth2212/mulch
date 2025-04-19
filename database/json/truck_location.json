@@ -1,0 +1,250 @@
+[
+  {
+    "VehicleNumber": "NS02",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8613 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.0,
+        "DeltaTime": 17,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Stop",
+        "Direction": 240,
+        "Heading": "South West",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.155268,
+        "Longitude": -88.018533,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-04-18T21:54:30",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS05",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8613 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.03,
+        "DeltaTime": 0,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Towing",
+        "Direction": 143,
+        "Heading": "South East",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.155284,
+        "Longitude": -88.018449,
+        "Speed": 1.0,
+        "UpdateUTC": "2025-04-18T18:33:44",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS06",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8501 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.0,
+        "DeltaTime": 0,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Towing",
+        "Direction": 293,
+        "Heading": "North West",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.155589,
+        "Longitude": -88.018068,
+        "Speed": 1.0,
+        "UpdateUTC": "2025-04-18T18:35:48",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS07",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8501 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.0,
+        "DeltaTime": 0,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Idle",
+        "Direction": 51,
+        "Heading": "North East",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.1554406,
+        "Longitude": -88.0184198,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-03-28T16:42:08",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS08",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8613 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.03,
+        "DeltaTime": 57,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Stop",
+        "Direction": 119,
+        "Heading": "South East",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.155429,
+        "Longitude": -88.018516,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-04-19T18:07:08",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS09",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8613 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.0,
+        "DeltaTime": 21,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Stop",
+        "Direction": 249,
+        "Heading": "West",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.1552653,
+        "Longitude": -88.0184631,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-04-19T18:39:24",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS10",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "Unnamed Road, Menomonee Falls, WI 53051, USA",
+          "AddressLine2": "",
+          "Locality": "Menomonee Falls",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53051",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.0,
+        "DeltaTime": 30,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Idle",
+        "Direction": 190,
+        "Heading": "South",
+        "DriverNumber": null,
+        "GeoFenceName": "Kohl's Corporation",
+        "Latitude": 43.122445,
+        "Longitude": -88.123778,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-04-19T20:19:54",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  },
+  {
+    "VehicleNumber": "NS21",
+    "StatusCode": 200,
+    "ContentResource": {
+      "Value": {
+        "Address": {
+          "AddressLine1": "8501 W Calumet Rd, Milwaukee, WI 53224, USA",
+          "AddressLine2": "",
+          "Locality": "Milwaukee",
+          "AdministrativeArea": "WI",
+          "PostalCode": "53224",
+          "Country": "USA"
+        },
+        "DeltaDistance": 0.01,
+        "DeltaTime": 46,
+        "DeviceTimeZoneOffset": null,
+        "DeviceTimeZoneUseDST": true,
+        "DisplayState": "Stop",
+        "Direction": 90,
+        "Heading": "East",
+        "DriverNumber": null,
+        "GeoFenceName": "Natural Solutions",
+        "Latitude": 43.155426,
+        "Longitude": -88.017741,
+        "Speed": 0.0,
+        "UpdateUTC": "2025-04-18T21:09:22",
+        "IsPrivate": false
+      },
+      "StatusCode": 200
+    }
+  }
+]

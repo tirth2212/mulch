@@ -1,0 +1,1539 @@
+{
+  "schema": {
+    "tables": {
+      "clients": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('clients_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "clients_pkey",
+            "indexdef": "CREATE UNIQUE INDEX clients_pkey ON public.clients USING btree (id)"
+          }
+        ]
+      },
+      "job_assignments": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('job_assignments_id_seq'::regclass)"
+          },
+          {
+            "column_name": "job_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "vehicle_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "driver_name",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "status",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "assigned_date",
+            "data_type": "date",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "quantity_loaded",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "quantity_installed",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "quantity_remaining",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "monday_id",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          },
+          {
+            "column_name": "updated_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [
+          {
+            "column_name": "job_id",
+            "foreign_table_name": "jobs",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "vehicle_id",
+            "foreign_table_name": "vehicles",
+            "foreign_column_name": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "job_assignments_pkey",
+            "indexdef": "CREATE UNIQUE INDEX job_assignments_pkey ON public.job_assignments USING btree (id)"
+          },
+          {
+            "indexname": "job_assignments_monday_id_key",
+            "indexdef": "CREATE UNIQUE INDEX job_assignments_monday_id_key ON public.job_assignments USING btree (monday_id)"
+          }
+        ]
+      },
+      "job_schedule": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('job_schedule_id_seq'::regclass)"
+          },
+          {
+            "column_name": "job_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "scheduled_date",
+            "data_type": "date",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "start_time",
+            "data_type": "time without time zone",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "end_time",
+            "data_type": "time without time zone",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "notes",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          },
+          {
+            "column_name": "updated_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [
+          {
+            "column_name": "job_id",
+            "foreign_table_name": "jobs",
+            "foreign_column_name": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "job_schedule_pkey",
+            "indexdef": "CREATE UNIQUE INDEX job_schedule_pkey ON public.job_schedule USING btree (id)"
+          }
+        ]
+      },
+      "job_statuses": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('job_statuses_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "description",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "color",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "job_statuses_pkey",
+            "indexdef": "CREATE UNIQUE INDEX job_statuses_pkey ON public.job_statuses USING btree (id)"
+          }
+        ]
+      },
+      "job_types": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('job_types_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "description",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "job_types_pkey",
+            "indexdef": "CREATE UNIQUE INDEX job_types_pkey ON public.job_types USING btree (id)"
+          }
+        ]
+      },
+      "jobs": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('jobs_id_seq'::regclass)"
+          },
+          {
+            "column_name": "monday_id",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "client_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "job_type_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "job_status_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "material_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "material_vendor_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "bid_quantity",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "address",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "latitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "longitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "geom",
+            "data_type": "USER-DEFINED",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "is_night_job",
+            "data_type": "boolean",
+            "is_nullable": "YES",
+            "column_default": "false"
+          },
+          {
+            "column_name": "monday_group_id",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "monday_group_title",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "depth",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          },
+          {
+            "column_name": "updated_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [
+          {
+            "column_name": "client_id",
+            "foreign_table_name": "clients",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "job_type_id",
+            "foreign_table_name": "job_types",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "job_status_id",
+            "foreign_table_name": "job_statuses",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "material_id",
+            "foreign_table_name": "materials",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "material_vendor_id",
+            "foreign_table_name": "material_vendors",
+            "foreign_column_name": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "jobs_pkey",
+            "indexdef": "CREATE UNIQUE INDEX jobs_pkey ON public.jobs USING btree (id)"
+          },
+          {
+            "indexname": "jobs_monday_id_key",
+            "indexdef": "CREATE UNIQUE INDEX jobs_monday_id_key ON public.jobs USING btree (monday_id)"
+          },
+          {
+            "indexname": "idx_jobs_geom",
+            "indexdef": "CREATE INDEX idx_jobs_geom ON public.jobs USING gist (geom)"
+          }
+        ]
+      },
+      "material_vendors": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('material_vendors_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "address",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "latitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "longitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "geom",
+            "data_type": "USER-DEFINED",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "material_vendors_pkey",
+            "indexdef": "CREATE UNIQUE INDEX material_vendors_pkey ON public.material_vendors USING btree (id)"
+          },
+          {
+            "indexname": "idx_material_vendors_geom",
+            "indexdef": "CREATE INDEX idx_material_vendors_geom ON public.material_vendors USING gist (geom)"
+          }
+        ]
+      },
+      "materials": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('materials_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "description",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "materials_pkey",
+            "indexdef": "CREATE UNIQUE INDEX materials_pkey ON public.materials USING btree (id)"
+          }
+        ]
+      },
+      "spatial_ref_sys": {
+        "columns": [
+          {
+            "column_name": "srid",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "auth_name",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "auth_srid",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "srtext",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "proj4text",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          }
+        ],
+        "primary_keys": [
+          "srid"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "spatial_ref_sys_pkey",
+            "indexdef": "CREATE UNIQUE INDEX spatial_ref_sys_pkey ON public.spatial_ref_sys USING btree (srid)"
+          }
+        ]
+      },
+      "sync_log": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('sync_log_id_seq'::regclass)"
+          },
+          {
+            "column_name": "source",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "status",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "records_processed",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "error_message",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "sync_log_pkey",
+            "indexdef": "CREATE UNIQUE INDEX sync_log_pkey ON public.sync_log USING btree (id)"
+          }
+        ]
+      },
+      "users": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('users_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "email",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "password_hash",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "role",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": "'user'::character varying"
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          },
+          {
+            "column_name": "updated_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "users_pkey",
+            "indexdef": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+          },
+          {
+            "indexname": "users_email_key",
+            "indexdef": "CREATE UNIQUE INDEX users_email_key ON public.users USING btree (email)"
+          }
+        ]
+      },
+      "vehicle_status_history": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('vehicle_status_history_id_seq'::regclass)"
+          },
+          {
+            "column_name": "vehicle_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "status_id",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "address",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "latitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "longitude",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "geom",
+            "data_type": "USER-DEFINED",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "speed",
+            "data_type": "numeric",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "heading",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "direction",
+            "data_type": "integer",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "geo_fence_name",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "update_utc",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [
+          {
+            "column_name": "vehicle_id",
+            "foreign_table_name": "vehicles",
+            "foreign_column_name": "id"
+          },
+          {
+            "column_name": "status_id",
+            "foreign_table_name": "vehicle_status_types",
+            "foreign_column_name": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "vehicle_status_history_pkey",
+            "indexdef": "CREATE UNIQUE INDEX vehicle_status_history_pkey ON public.vehicle_status_history USING btree (id)"
+          },
+          {
+            "indexname": "idx_vehicle_status_history_geom",
+            "indexdef": "CREATE INDEX idx_vehicle_status_history_geom ON public.vehicle_status_history USING gist (geom)"
+          }
+        ]
+      },
+      "vehicle_status_types": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('vehicle_status_types_id_seq'::regclass)"
+          },
+          {
+            "column_name": "name",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "description",
+            "data_type": "text",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "vehicle_status_types_pkey",
+            "indexdef": "CREATE UNIQUE INDEX vehicle_status_types_pkey ON public.vehicle_status_types USING btree (id)"
+          },
+          {
+            "indexname": "vehicle_status_types_name_key",
+            "indexdef": "CREATE UNIQUE INDEX vehicle_status_types_name_key ON public.vehicle_status_types USING btree (name)"
+          }
+        ]
+      },
+      "vehicles": {
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "integer",
+            "is_nullable": "NO",
+            "column_default": "nextval('vehicles_id_seq'::regclass)"
+          },
+          {
+            "column_name": "vehicle_number",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+          },
+          {
+            "column_name": "display_name",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+          },
+          {
+            "column_name": "created_at",
+            "data_type": "timestamp with time zone",
+            "is_nullable": "YES",
+            "column_default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "primary_keys": [
+          "id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "indexname": "vehicles_pkey",
+            "indexdef": "CREATE UNIQUE INDEX vehicles_pkey ON public.vehicles USING btree (id)"
+          },
+          {
+            "indexname": "vehicles_vehicle_number_key",
+            "indexdef": "CREATE UNIQUE INDEX vehicles_vehicle_number_key ON public.vehicles USING btree (vehicle_number)"
+          }
+        ]
+      }
+    }
+  },
+  "sample_data": {
+    "clients": {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Gary Bach",
+          "created_at": "2025-04-13T02:47:21.175153-05:00"
+        },
+        {
+          "id": 2,
+          "name": "Harley Thomas Residence",
+          "created_at": "2025-04-13T02:47:21.175153-05:00"
+        },
+        {
+          "id": 3,
+          "name": "Best Choice Landscape",
+          "created_at": "2025-04-13T02:47:21.175153-05:00"
+        },
+        {
+          "id": 4,
+          "name": "CG Schmidt",
+          "created_at": "2025-04-13T02:47:21.175153-05:00"
+        },
+        {
+          "id": 5,
+          "name": "Founders 3",
+          "created_at": "2025-04-13T02:47:21.175153-05:00"
+        }
+      ],
+      "total_count": 303
+    },
+    "job_assignments": {
+      "rows": [],
+      "total_count": 0
+    },
+    "job_schedule": {
+      "rows": [],
+      "total_count": 0
+    },
+    "job_statuses": {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Paused",
+          "description": null,
+          "color": null,
+          "created_at": "2025-04-13T02:47:21.227758-05:00"
+        },
+        {
+          "id": 2,
+          "name": "In Progress",
+          "description": null,
+          "color": null,
+          "created_at": "2025-04-13T02:47:21.227758-05:00"
+        },
+        {
+          "id": 3,
+          "name": "Not Renewed",
+          "description": null,
+          "color": null,
+          "created_at": "2025-04-13T02:47:21.227758-05:00"
+        },
+        {
+          "id": 4,
+          "name": "Job Completed",
+          "description": null,
+          "color": null,
+          "created_at": "2025-04-13T02:47:21.227758-05:00"
+        }
+      ],
+      "total_count": 4
+    },
+    "job_types": {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Hospitality / Retail",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.226174-05:00"
+        },
+        {
+          "id": 2,
+          "name": "Residential",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.226174-05:00"
+        },
+        {
+          "id": 3,
+          "name": "DOT",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.226174-05:00"
+        },
+        {
+          "id": 4,
+          "name": "HOA",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.226174-05:00"
+        },
+        {
+          "id": 5,
+          "name": "Playground",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.226174-05:00"
+        }
+      ],
+      "total_count": 13
+    },
+    "jobs": {
+      "rows": [
+        {
+          "id": 1,
+          "monday_id": "8120243552",
+          "name": "Five Fields Subdivision",
+          "client_id": 71,
+          "job_type_id": 4,
+          "job_status_id": 2,
+          "material_id": 6,
+          "material_vendor_id": null,
+          "bid_quantity": "120.00",
+          "address": "Five Fields Rd, Pewaukee, WI, USA",
+          "latitude": "43.0818455",
+          "longitude": "-88.2200731",
+          "geom": "0101000020E6100000ADCE7BAD150E56C092E9D0E9798A4540",
+          "is_night_job": false,
+          "monday_group_id": "in_progress",
+          "monday_group_title": "In Progress",
+          "depth": "1",
+          "created_at": "2025-04-13T02:47:21.229187-05:00",
+          "updated_at": "2025-04-13T02:47:21.229187-05:00"
+        },
+        {
+          "id": 2,
+          "monday_id": "8120245759",
+          "name": "Advocate Aurora - Cedar Creek",
+          "client_id": 52,
+          "job_type_id": 12,
+          "job_status_id": 2,
+          "material_id": 6,
+          "material_vendor_id": null,
+          "bid_quantity": "43.00",
+          "address": "215 West Washington Street, Grafton, WI, USA",
+          "latitude": "43.3203220",
+          "longitude": "-87.9690839",
+          "geom": "0101000020E610000021657A7805FE55C03B18B14F00A94540",
+          "is_night_job": false,
+          "monday_group_id": "in_progress",
+          "monday_group_title": "In Progress",
+          "depth": "1",
+          "created_at": "2025-04-13T02:47:21.229187-05:00",
+          "updated_at": "2025-04-13T02:47:21.229187-05:00"
+        },
+        {
+          "id": 3,
+          "monday_id": "8120248691",
+          "name": "Research One",
+          "client_id": 179,
+          "job_type_id": 9,
+          "job_status_id": 2,
+          "material_id": 1,
+          "material_vendor_id": null,
+          "bid_quantity": "90.00",
+          "address": "10701 West Research Drive, Milwaukee, WI, USA",
+          "latitude": "43.0401425",
+          "longitude": "-88.0448842",
+          "geom": "0101000020E6100000DBC6FA61DF0256C00057B26323854540",
+          "is_night_job": true,
+          "monday_group_id": "in_progress",
+          "monday_group_title": "In Progress",
+          "depth": "1",
+          "created_at": "2025-04-13T02:47:21.229187-05:00",
+          "updated_at": "2025-04-13T02:47:21.229187-05:00"
+        },
+        {
+          "id": 4,
+          "monday_id": "8120247366",
+          "name": "Wikoff Color",
+          "client_id": 71,
+          "job_type_id": 9,
+          "job_status_id": 1,
+          "material_id": 6,
+          "material_vendor_id": null,
+          "bid_quantity": "50.00",
+          "address": "W223N6351 Richard Rd. Lisbon",
+          "latitude": "43.1327908",
+          "longitude": "-88.1929983",
+          "geom": "0101000020E6100000C0AB8A155A0C56C0D79AF749FF904540",
+          "is_night_job": true,
+          "monday_group_id": "new_group60921__1",
+          "monday_group_title": "Paused",
+          "depth": "1",
+          "created_at": "2025-04-13T02:47:21.229187-05:00",
+          "updated_at": "2025-04-13T02:47:21.229187-05:00"
+        },
+        {
+          "id": 5,
+          "monday_id": "8120244493",
+          "name": "Kohl's Family Center - Playground (1)",
+          "client_id": 71,
+          "job_type_id": 5,
+          "job_status_id": 1,
+          "material_id": 1,
+          "material_vendor_id": null,
+          "bid_quantity": "27.00",
+          "address": "W165N5800 Ridgewood Drive, Menomonee Falls, WI, USA",
+          "latitude": "43.1231783",
+          "longitude": "-88.1162359",
+          "geom": "0101000020E6100000C147B368700756C0D709794EC48F4540",
+          "is_night_job": true,
+          "monday_group_id": "new_group60921__1",
+          "monday_group_title": "Paused",
+          "depth": "1",
+          "created_at": "2025-04-13T02:47:21.229187-05:00",
+          "updated_at": "2025-04-13T02:47:21.229187-05:00"
+        }
+      ],
+      "total_count": 4315
+    },
+    "material_vendors": {
+      "rows": [],
+      "total_count": 0
+    },
+    "materials": {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Hardwood Bark",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.222733-05:00"
+        },
+        {
+          "id": 2,
+          "name": "Pine",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.222733-05:00"
+        },
+        {
+          "id": 3,
+          "name": "Red Enviro",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.222733-05:00"
+        },
+        {
+          "id": 4,
+          "name": "Installation Only",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.222733-05:00"
+        },
+        {
+          "id": 5,
+          "name": "Rubber",
+          "description": null,
+          "created_at": "2025-04-13T02:47:21.222733-05:00"
+        }
+      ],
+      "total_count": 12
+    },
+    "sync_log": {
+      "rows": [
+        {
+          "id": 1,
+          "source": "vehicles",
+          "status": "success",
+          "records_processed": 9,
+          "error_message": null,
+          "created_at": "2025-04-13T02:46:15.660589-05:00"
+        },
+        {
+          "id": 2,
+          "source": "clients",
+          "status": "success",
+          "records_processed": 303,
+          "error_message": null,
+          "created_at": "2025-04-13T02:47:21.222044-05:00"
+        },
+        {
+          "id": 3,
+          "source": "materials",
+          "status": "success",
+          "records_processed": 12,
+          "error_message": null,
+          "created_at": "2025-04-13T02:47:21.225918-05:00"
+        },
+        {
+          "id": 4,
+          "source": "job_types",
+          "status": "success",
+          "records_processed": 13,
+          "error_message": null,
+          "created_at": "2025-04-13T02:47:21.227602-05:00"
+        },
+        {
+          "id": 5,
+          "source": "job_statuses",
+          "status": "success",
+          "records_processed": 4,
+          "error_message": null,
+          "created_at": "2025-04-13T02:47:21.228940-05:00"
+        }
+      ],
+      "total_count": 7
+    },
+    "users": {
+      "rows": [],
+      "total_count": 0
+    },
+    "vehicle_status_history": {
+      "rows": [
+        {
+          "id": 1,
+          "vehicle_id": 1,
+          "status_id": 4,
+          "address": "8613 W Calumet Rd, Milwaukee, WI 53224, USA, Milwaukee, WI, 53224, USA",
+          "latitude": "43.1552730",
+          "longitude": "-88.0185400",
+          "geom": "0101000020E6100000BE6A65C22F0156C0D57954FCDF934540",
+          "speed": "1.00",
+          "heading": "West",
+          "direction": 258,
+          "geo_fence_name": "Natural Solutions",
+          "update_utc": "2025-04-12T20:49:45-05:00",
+          "created_at": "2025-04-13T02:48:09.014568-05:00"
+        },
+        {
+          "id": 2,
+          "vehicle_id": 3,
+          "status_id": 2,
+          "address": "Unnamed Road, Wauwatosa, WI 53226, USA, Wauwatosa, WI, 53226, USA",
+          "latitude": "43.0408520",
+          "longitude": "-88.0408550",
+          "geom": "0101000020E610000032384A5E9D0256C0F4FC69A33A854540",
+          "speed": "0.00",
+          "heading": "South",
+          "direction": 182,
+          "geo_fence_name": null,
+          "update_utc": "2025-04-13T01:50:12-05:00",
+          "created_at": "2025-04-13T02:48:09.014568-05:00"
+        },
+        {
+          "id": 3,
+          "vehicle_id": 4,
+          "status_id": 1,
+          "address": "8613 West Calumet Road, Milwaukee, WI, 53224, USA",
+          "latitude": "43.1552000",
+          "longitude": "-88.0184840",
+          "geom": "0101000020E6100000F4DF83D72E0156C06B2BF697DD934540",
+          "speed": "1.00",
+          "heading": "West",
+          "direction": 258,
+          "geo_fence_name": "Natural Solutions",
+          "update_utc": "2025-04-13T00:41:23-05:00",
+          "created_at": "2025-04-13T02:48:09.014568-05:00"
+        },
+        {
+          "id": 4,
+          "vehicle_id": 5,
+          "status_id": 3,
+          "address": "8501 W Calumet Rd, Milwaukee, WI 53224, USA, Milwaukee, WI, 53224, USA",
+          "latitude": "43.1554406",
+          "longitude": "-88.0184198",
+          "geom": "0101000020E610000054A63DCA2D0156C03DBC427AE5934540",
+          "speed": "0.00",
+          "heading": "North East",
+          "direction": 51,
+          "geo_fence_name": "Natural Solutions",
+          "update_utc": "2025-03-28T16:42:08-05:00",
+          "created_at": "2025-04-13T02:48:09.014568-05:00"
+        },
+        {
+          "id": 5,
+          "vehicle_id": 6,
+          "status_id": 2,
+          "address": "8613 W Calumet Rd, Milwaukee, WI 53224, USA, Milwaukee, WI, 53224, USA",
+          "latitude": "43.1554240",
+          "longitude": "-88.0185280",
+          "geom": "0101000020E6100000DC8310902F0156C0BA8102EFE4934540",
+          "speed": "0.00",
+          "heading": "South West",
+          "direction": 232,
+          "geo_fence_name": "Natural Solutions",
+          "update_utc": "2025-04-12T16:34:15-05:00",
+          "created_at": "2025-04-13T02:48:09.014568-05:00"
+        }
+      ],
+      "total_count": 8
+    },
+    "vehicle_status_types": {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Moving",
+          "description": "Vehicle is in motion",
+          "created_at": "2025-04-13T02:48:09.005931-05:00"
+        },
+        {
+          "id": 2,
+          "name": "Stop",
+          "description": "Vehicle is stopped",
+          "created_at": "2025-04-13T02:48:09.005931-05:00"
+        },
+        {
+          "id": 3,
+          "name": "Idle",
+          "description": "Vehicle engine is on but not moving",
+          "created_at": "2025-04-13T02:48:09.005931-05:00"
+        },
+        {
+          "id": 4,
+          "name": "Towing",
+          "description": "Vehicle is towing equipment",
+          "created_at": "2025-04-13T02:48:09.005931-05:00"
+        },
+        {
+          "id": 5,
+          "name": "Unknown",
+          "description": "Status unknown or unavailable",
+          "created_at": "2025-04-13T02:48:09.005931-05:00"
+        }
+      ],
+      "total_count": 5
+    },
+    "vehicles": {
+      "rows": [
+        {
+          "id": 1,
+          "vehicle_number": "NS02",
+          "display_name": "Truck NS02",
+          "created_at": "2025-04-13T02:46:15.651551-05:00"
+        },
+        {
+          "id": 2,
+          "vehicle_number": "NS02B",
+          "display_name": "Truck NS02B",
+          "created_at": "2025-04-13T02:46:15.651551-05:00"
+        },
+        {
+          "id": 3,
+          "vehicle_number": "NS05",
+          "display_name": "Truck NS05",
+          "created_at": "2025-04-13T02:46:15.651551-05:00"
+        },
+        {
+          "id": 4,
+          "vehicle_number": "NS06",
+          "display_name": "Truck NS06",
+          "created_at": "2025-04-13T02:46:15.651551-05:00"
+        },
+        {
+          "id": 5,
+          "vehicle_number": "NS07",
+          "display_name": "Truck NS07",
+          "created_at": "2025-04-13T02:46:15.651551-05:00"
+        }
+      ],
+      "total_count": 9
+    }
+  },
+  "relationships": {
+    "nodes": [
+      {
+        "id": "clients",
+        "label": "clients",
+        "size": 100
+      },
+      {
+        "id": "job_assignments",
+        "label": "job_assignments",
+        "size": 30
+      },
+      {
+        "id": "job_schedule",
+        "label": "job_schedule",
+        "size": 30
+      },
+      {
+        "id": "job_statuses",
+        "label": "job_statuses",
+        "size": 34
+      },
+      {
+        "id": "job_types",
+        "label": "job_types",
+        "size": 43
+      },
+      {
+        "id": "jobs",
+        "label": "jobs",
+        "size": 100
+      },
+      {
+        "id": "material_vendors",
+        "label": "material_vendors",
+        "size": 30
+      },
+      {
+        "id": "materials",
+        "label": "materials",
+        "size": 42
+      },
+      {
+        "id": "sync_log",
+        "label": "sync_log",
+        "size": 37
+      },
+      {
+        "id": "users",
+        "label": "users",
+        "size": 30
+      },
+      {
+        "id": "vehicle_status_history",
+        "label": "vehicle_status_history",
+        "size": 38
+      },
+      {
+        "id": "vehicle_status_types",
+        "label": "vehicle_status_types",
+        "size": 35
+      },
+      {
+        "id": "vehicles",
+        "label": "vehicles",
+        "size": 39
+      }
+    ],
+    "edges": [
+      {
+        "source": "job_assignments",
+        "target": "vehicles",
+        "label": "vehicle_id \u2192 id"
+      },
+      {
+        "source": "job_assignments",
+        "target": "jobs",
+        "label": "job_id \u2192 id"
+      },
+      {
+        "source": "job_schedule",
+        "target": "jobs",
+        "label": "job_id \u2192 id"
+      },
+      {
+        "source": "jobs",
+        "target": "materials",
+        "label": "material_id \u2192 id"
+      },
+      {
+        "source": "jobs",
+        "target": "material_vendors",
+        "label": "material_vendor_id \u2192 id"
+      },
+      {
+        "source": "jobs",
+        "target": "clients",
+        "label": "client_id \u2192 id"
+      },
+      {
+        "source": "jobs",
+        "target": "job_types",
+        "label": "job_type_id \u2192 id"
+      },
+      {
+        "source": "jobs",
+        "target": "job_statuses",
+        "label": "job_status_id \u2192 id"
+      },
+      {
+        "source": "vehicle_status_history",
+        "target": "vehicle_status_types",
+        "label": "status_id \u2192 id"
+      },
+      {
+        "source": "vehicle_status_history",
+        "target": "vehicles",
+        "label": "vehicle_id \u2192 id"
+      }
+    ]
+  },
+  "stats": {
+    "table_count": 14,
+    "table_row_counts": [
+      {
+        "table_name": "spatial_ref_sys",
+        "row_count": 8500
+      },
+      {
+        "table_name": "jobs",
+        "row_count": 4315
+      },
+      {
+        "table_name": "clients",
+        "row_count": 303
+      },
+      {
+        "table_name": "job_types",
+        "row_count": 13
+      },
+      {
+        "table_name": "materials",
+        "row_count": 12
+      },
+      {
+        "table_name": "vehicles",
+        "row_count": 9
+      },
+      {
+        "table_name": "vehicle_status_history",
+        "row_count": 8
+      },
+      {
+        "table_name": "sync_log",
+        "row_count": 7
+      },
+      {
+        "table_name": "vehicle_status_types",
+        "row_count": 5
+      },
+      {
+        "table_name": "job_statuses",
+        "row_count": 4
+      },
+      {
+        "table_name": "material_vendors",
+        "row_count": 0
+      },
+      {
+        "table_name": "users",
+        "row_count": 0
+      },
+      {
+        "table_name": "job_assignments",
+        "row_count": 0
+      },
+      {
+        "table_name": "job_schedule",
+        "row_count": 0
+      }
+    ],
+    "total_row_count": 13176,
+    "database_size": "19 MB"
+  },
+  "metadata": {
+    "generated_at": "2025-04-13T02:52:07.996593",
+    "database": "mulch",
+    "host": "localhost"
+  }
+}

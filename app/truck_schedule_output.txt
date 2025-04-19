@@ -1,0 +1,56 @@
+=======================================
+Schedule:
+
+Truck: NS02
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Pilgrim Village           | Brown Enviro | Unnamed Road, Menomonee Falls, WI 53051, USA (43.177929, -88.100645)
+2        | Extended Stay - Wauwatosa | Brown Enviro | Full address
+3        | Innovation 2              | Brown Enviro | Full address
+
+Truck: NS05
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Pilgrim Village           | Brown Enviro | 8501 W Calumet Rd, Milwaukee, WI 53224, USA
+2        | Extended Stay - Wauwatosa | Brown Enviro | Full address
+3        | Brady Farwell             | Brown Enviro | Full address
+
+Truck: NS06
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Fresenius Kidney Care - Durand Ave. | Brown Enviro | Fresenius Kidney Care - Durand Ave., Burlington, WI 53105, USA (42.693072, -88.263407)
+2        | Muskego Commerce Center Owner's Association | Brown Enviro | Muskego Commerce Center Owner's Association, Burlington, WI 53105, USA (42.693072, -88.263407)
+
+Truck: NS07
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | American Signal           | Hardwood Bark | 8501 W Calumet Rd, Milwaukee, WI 53224, USA
+2        | Pilgrim Village           | Brown Enviro | ??? (need to get the exact address)
+3        | 7950 N. Port Washington Road | Hardwood Bark | 7950 N. Port Washington Road, Milwaukee, WI, USA
+
+Truck: NS08
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Muskego Commerce Center Owner's Association | Brown Enviro | Muskego Commerce Center Owner's Association, 12345 W. National Ave, Muskego, WI 53150
+2        | Zilber IX @ TCP           | Brown Enviro | Zilber IX @ TCP, 12345 W. Capitol Dr, Milwaukee, WI 53233
+3        | Starbucks - Washington Ave. | Brown Enviro | Starbucks - Washington Ave., 12345 W. Washington Ave, Milwaukee, WI 53233
+
+Truck: NS09
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Fresenius Kidney Care - Durand Ave. | Brown Enviro | Fresenius Kidney Care - Durand Ave., Racine, WI 53402, USA (42.7832419, -87.7955119)
+2        | Mt Pleasant Plaza         | Brown Enviro | Mt Pleasant Plaza, Racine, WI 53402, USA (42.7899381, -87.8124095)
+3        | Starbucks - Washington Ave. | Brown Enviro | Starbucks - Washington Ave., Racine, WI 53402, USA (42.7851111, -87.8136111)
+
+Truck: NS10
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Muskego Commerce Center Owner's Association | Brown Enviro | 15680 Commerce Center Parkway, Muskego, WI 53150, USA
+2        | Zilber IX @ TCP           | Brown Enviro | Distance: 1.75 miles
+
+Truck: NS21
+Jobs for Tomorrow:
+Job No. | Job’s Name                 | Material     | Address
+1        | Advocate Aurora - 200 E. Ryan Rd. | Brown Enviro | 200 E. Ryan Rd.
+2        | Fresenius Kidney Care - S. 22nd St. | Brown Enviro | Fresenius Kidney Care - S. 22nd St.
+3        | Columbia Grinding         | Brown Enviro | Columbia Grinding

@@ -1,0 +1,51 @@
+{
+  "Jobs": {
+    "In Progress": 3,
+    "Paused": 2,
+    "Jobs to be Scheduled": 23,
+    "Material Vendors": 14,
+    "Material Locations": 3,
+    "Hotels": 10
+  },
+  "Truck Assignments": {
+    "NS02": {
+      "Schedule": 0,
+      "Production Review": 16
+    },
+    "NS02B": {
+      "Schedule": 0,
+      "Production Review": 0
+    },
+    "NS05": {
+      "Schedule": 0,
+      "Production Review": 16
+    },
+    "NS06": {
+      "Schedule": 0,
+      "Production Review": 4
+    },
+    "NS07": {
+      "Schedule": 3,
+      "Production Review": 0
+    },
+    "NS08": {
+      "Schedule": 0,
+      "Production Review": 13
+    },
+    "NS09": {
+      "Schedule": 0,
+      "Production Review": 7
+    },
+    "NS10": {
+      "Schedule": 0,
+      "Production Review": 16
+    },
+    "NS21": {
+      "Schedule": 0,
+      "Production Review": 28
+    }
+  },
+  "Truck Locations": {
+    "Total Records": 8
+  }
+}
